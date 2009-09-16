@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="examples"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/ant/ant-junit.jar"/>
+	<classpathentry kind="lib" path="lib/ant/ant-launcher.jar"/>
+	<classpathentry kind="lib" path="lib/ant/ant-trax.jar"/>
+	<classpathentry kind="lib" path="lib/ant/ant.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/junit.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-analyzers-2.2.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-core-2.2.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-highlighter-2.2.0.jar"/>
+	<classpathentry kind="lib" path="lib/spring-beans.jar"/>
+	<classpathentry kind="lib" path="lib/spring-core.jar"/>
+	<classpathentry kind="lib" path="paoding-analysis.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
