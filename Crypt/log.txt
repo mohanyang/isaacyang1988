@@ -1,0 +1,192 @@
+x3x2x1 + x3x2x0 + x3x2 + x3x1x0 + x3x1 + x2x1 + x2x0 + x1x0 + x1 + x0 + 1
+The order of the polynomial is 3
+The number of mini-item is 11
+x3x2 + x3x1 + x2 + x1 + 1
+The order of the polynomial is 2
+The number of mini-item is 5
+x3x2 + x3x0 + x3 + x2 + x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 6
+x3x1 + x3x0 + x1 + x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 5
+x3x1 + x3x0 + x3 + x1 + x0
+The order of the polynomial is 2
+The number of mini-item is 5
+x3x2 + x3x0 + x2 + x0
+The order of the polynomial is 2
+The number of mini-item is 4
+x3x2 + x3x1 + x3 + x2 + x1
+The order of the polynomial is 2
+The number of mini-item is 5
+x3 + 1
+The order of the polynomial is 1
+The number of mini-item is 2
+x2x1 + x2x0 + x2 + x1x0 + x1
+The order of the polynomial is 2
+The number of mini-item is 5
+x3x2 + x3x1 + x2x1 + x2x0 + x2 + x1x0 + x1 + 1
+The order of the polynomial is 2
+The number of mini-item is 8
+x3x2 + x3x0 + x3 + x2x1 + x2x0 + x2 + x1x0 + x1
+The order of the polynomial is 2
+The number of mini-item is 8
+x3x1 + x3x0 + x2x1 + x2x0 + x2 + x1x0 + x1 + 1
+The order of the polynomial is 2
+The number of mini-item is 8
+x3x1 + x3x0 + x3 + x2x1 + x2x0 + x2 + x1x0 + x1 + 1
+The order of the polynomial is 2
+The number of mini-item is 9
+x3x2 + x3x0 + x2x1 + x2x0 + x2 + x1x0 + x1
+The order of the polynomial is 2
+The number of mini-item is 7
+x3x2 + x3x1 + x3 + x2x1 + x2x0 + x2 + x1x0 + x1 + 1
+The order of the polynomial is 2
+The number of mini-item is 9
+x3 + x2x1 + x2x0 + x2 + x1x0 + x1
+The order of the polynomial is 2
+The number of mini-item is 6
+x3x2x0 + x2x1x0 + x2x1 + x1 + x0
+The order of the polynomial is 3
+The number of mini-item is 5
+x3x2 + x2x1 + 1
+The order of the polynomial is 2
+The number of mini-item is 3
+x2x0 + x2 + 1
+The order of the polynomial is 2
+The number of mini-item is 3
+x3x2 + x2x1 + x2x0
+The order of the polynomial is 2
+The number of mini-item is 3
+x3x0 + x1x0 + x1
+The order of the polynomial is 2
+The number of mini-item is 3
+x3x2 + x3x0 + x3 + x2x1 + x1x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 6
+x3x0 + x2x0 + x2 + x1x0 + x1 + x0
+The order of the polynomial is 2
+The number of mini-item is 6
+x3x2 + x3x0 + x3 + x2x1 + x2x0 + x1x0 + x0
+The order of the polynomial is 2
+The number of mini-item is 7
+x2x0
+The order of the polynomial is 2
+The number of mini-item is 1
+x3x2 + x2x1 + x2x0 + x2 + 1
+The order of the polynomial is 2
+The number of mini-item is 5
+x2 + 1
+The order of the polynomial is 1
+The number of mini-item is 2
+x3x2 + x2x1 + x2
+The order of the polynomial is 2
+The number of mini-item is 3
+x3x0 + x2x0 + x1x0 + x1 + x0
+The order of the polynomial is 2
+The number of mini-item is 5
+x3x2 + x3x0 + x3 + x2x1 + x2x0 + x2 + x1x0 + x0
+The order of the polynomial is 2
+The number of mini-item is 8
+x3x0 + x2 + x1x0 + x1
+The order of the polynomial is 2
+The number of mini-item is 4
+x3x2 + x3x0 + x3 + x2x1 + x2 + x1x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 7
+x3x2x0 + x3x1 + x3x0 + x2x1x0 + x2x1 + x1
+The order of the polynomial is 3
+The number of mini-item is 6
+x3x2 + x3 + x2x1
+The order of the polynomial is 2
+The number of mini-item is 3
+x3 + x2x0 + x2 + 1
+The order of the polynomial is 2
+The number of mini-item is 4
+x3x2 + x2x1 + x2x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 4
+x3x0 + x1x0 + x1
+The order of the polynomial is 2
+The number of mini-item is 3
+x3x2 + x3x0 + x2x1 + x1x0
+The order of the polynomial is 2
+The number of mini-item is 4
+x3x0 + x3 + x2x0 + x2 + x1x0 + x1 + x0
+The order of the polynomial is 2
+The number of mini-item is 7
+x3x2 + x3x0 + x3 + x2x1 + x2x0 + x1x0 + x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 8
+x2x0 + x1 + x0
+The order of the polynomial is 2
+The number of mini-item is 3
+x3x2 + x3 + x2x1 + x2x0 + x2 + x1 + x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 8
+x3 + x2 + x1 + x0
+The order of the polynomial is 1
+The number of mini-item is 4
+x3x2 + x2x1 + x2 + x1 + x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 6
+x3x0 + x2x0 + x1x0
+The order of the polynomial is 2
+The number of mini-item is 3
+x3x2 + x3x0 + x2x1 + x2x0 + x2 + x1x0 + x1
+The order of the polynomial is 2
+The number of mini-item is 7
+x3x0 + x3 + x2 + x1x0 + x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 6
+x3x2 + x3x0 + x3 + x2x1 + x2 + x1x0 + x1 + x0
+The order of the polynomial is 2
+The number of mini-item is 8
+x3x2x0 + x3x2 + x3x1x0 + x3x0 + x2x1x0 + x2x1 + x1x0 + x1 + x0
+The order of the polynomial is 3
+The number of mini-item is 9
+x3x2 + x3x1 + x3 + x2x1 + x1 + 1
+The order of the polynomial is 2
+The number of mini-item is 6
+x3x0 + x2x0 + x2 + x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 5
+x3x2 + x3x1 + x3x0 + x2x1 + x2x0 + x1 + x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 8
+x3x0 + x3 + x1x0 + x1
+The order of the polynomial is 2
+The number of mini-item is 4
+x3x2 + x3x1 + x3x0 + x3 + x2x1 + x1x0 + x1 + 1
+The order of the polynomial is 2
+The number of mini-item is 8
+x3 + x2x0 + x2 + x1x0 + x1
+The order of the polynomial is 2
+The number of mini-item is 5
+x3x2 + x3x1 + x2x1 + x2x0 + x1x0 + x1 + 1
+The order of the polynomial is 2
+The number of mini-item is 7
+x2x0 + x2 + x1x0 + x0
+The order of the polynomial is 2
+The number of mini-item is 4
+x3x2 + x3x1 + x3 + x2x1 + x2x0 + x1x0 + x0
+The order of the polynomial is 2
+The number of mini-item is 7
+x3x0 + x1x0 + x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 4
+x3x2 + x3x1 + x3x0 + x2x1 + x1x0 + x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 7
+x3x0 + x3 + x2x0 + x2 + x1 + 1
+The order of the polynomial is 2
+The number of mini-item is 6
+x3x2 + x3x1 + x3x0 + x3 + x2x1 + x2x0
+The order of the polynomial is 2
+The number of mini-item is 6
+x3 + x1 + x0 + 1
+The order of the polynomial is 1
+The number of mini-item is 4
+x3x2 + x3x1 + x2x1 + x0 + 1
+The order of the polynomial is 2
+The number of mini-item is 5

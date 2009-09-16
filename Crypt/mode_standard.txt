@@ -1,0 +1,49 @@
+B.2.1	TECB
+The Triple DEA mode which is defined in Section 4.1 shall be identified by the object identifier tECB:
+tECB OBJECT IDENTIFIER ::= {mode 1}
+For this object identifier, the associated parameters component shall have type NULL.
+B.2.2	TCBC
+The Triple DEA mode which is defined in Section 4.2 shall be identified by the object identifier tCBC:
+tCBC OBJECT IDENTIFIER ::= {mode 2}
+For this object identifier, the associated parameters component shall have type NULL.
+B.2.3	TCBC-I
+The Triple DEA mode which is defined in Section 4.3 shall be identified by the object identifier tCBC-I:
+tCBC-I OBJECT IDENTIFIER ::= {mode 3}
+For this object identifier, the associated parameters component shall have type NULL.
+B.2.4	TCFB
+The Triple DEA mode which is defined in Section 4.4 shall be identified by the object identifier tCFB:
+tCFB OBJECT IDENTIFIER ::= {mode 4}
+For this object identifier, the associated parameters component shall have type modeParameters.
+Mode parameters shall be specified by the type modeParameters:
+modeParameters ::= 
+{  
+feedback INTEGER {1|8|64} -¨C feedback path width in bits
+}
+feedback specifies the width of the feedback path in bits.
+B.2.5	TCFB-P
+The Triple DEA mode which is defined in Section 4.5 shall be identified by the object identifier tCFB-P:
+tCFB-P OBJECT IDENTIFIER ::= {mode 5}
+For this object identifier, the associated parameters component shall have type modeParameters.
+Mode parameters shall be specified by the type modeParameters:
+modeParameters ::= 
+{  
+feedback INTEGER {1|8|64} -¨C feedback path width in bits
+}
+feedback specifies the width of the feedback path in bits.
+B.2.6	TOFB			(64)?
+The Triple DEA mode which is defined in Section 4.6 shall be identified by the object identifier tOFB:
+tOFB OBJECT IDENTIFIER ::= {mode 6}
+For this object identifier, the associated parameters component shall have type NULL.
+B.2.7	TOFB-P
+The Triple DEA mode which is defined in Section 4.7 shall be identified by the object identifier tOFB-P:
+tOFB-P OBJECT IDENTIFIER ::= {mode 7}
+For this object identifier, the associated parameters component shall have type NULL.
+B.2.8	TCBCM
+The Triple DEA mode which is defined in Section 4.8 shall be identified by the object identifier cBCM:
+cBCM OBJECT IDENTIFIER ::= {mode 8}
+For this object identifier, the associated parameters component shall have type NULL.
+B.2.9	TCBCM-I
+The Triple DEA mode which is defined in Section 4.9 shall be identified by the object identifier cBCM-I:
+cBCM-I OBJECT IDENTIFIER ::= {mode 9}
+B.2.10	CTR
+For this object identifier, the associated parameters component shall have type NULL.
