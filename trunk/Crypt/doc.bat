@@ -1,0 +1,1 @@
+javadoc -d doc @packagelist.txt -version -author -footer crypto -header crypto

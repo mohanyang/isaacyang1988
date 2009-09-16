@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<jardesc>
+    <jar path="Crypt/crypto.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/Crypt/jar.jardesc" exportErrors="false" exportWarnings="true" includeDirectoryEntries="true" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=Crypt/src&lt;crypto.driver{Driver.java[Driver" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.agreement"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.params"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.openssl"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.prng"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.kisa"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.ui"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.execution.cipher"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.misc"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.jce.provider.symmetric"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.cms"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.execution.HMac"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.crmf"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.pkcs"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.attack.differential.higher.data{DifferentialFunction.java"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.driver"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.math"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.toolkit.entropy"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.jce.spec"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.stat"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.tsp"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.esf"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.isismtt.ocsp"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.generators"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.agreement.kdf"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.util"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.util"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.common"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.errormsg"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.nist"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.cmp"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.modes"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.x509"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.toolkit.prng"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.x509.sigi"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.toolkit.differential.ANF"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.math.ec"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.voms"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.jce.netscape"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.jce.provider.asymmetric.ec"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.sec"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.jce"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.mozilla"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.engines"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.x500"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.io"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.x9"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.ocsp"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.x509.util"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.identify"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.paddings"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.util"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.jce.provider.test.nist"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.toolkit.differential"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.util"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.toolkit.differential.search"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.ocsp"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.cryptopro"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.util.io"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.util.encoders"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.x509.qualified"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.smime"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.agreement.srp"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.signers"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.teletrust"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.execution.digest"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.microsoft"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.encodings"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.macs"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.isismtt"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.ntt"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.jce.exception"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.iana"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.tls"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.i18n"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.toolkit"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.toolkit.differential.down"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.ess"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.ui.toolkit"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.jce.provider"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.jce.provider.test.rsa3"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.eac"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.digests"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.jce.provider.asymmetric"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.oiw"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.x509.extension"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto.prng"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.i18n.filter"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.mozilla"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.toolkit.ANF"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;crypto.execution"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.crypto"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.icao"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.jce.interfaces"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.gnu"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.x509"/>
+        <javaElement handleIdentifier="=Crypt/src&lt;org.bouncycastle.asn1.isismtt.x509"/>
+    </selectedElements>
+</jardesc>
