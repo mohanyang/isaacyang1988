@@ -126,53 +126,36 @@ public class BuildDict {
 	}
 
 	public LinkedList<Token> simpleSplitWord(String str) {
-		Queue<String> strQueue = new LinkedList<String>();
-		Queue<Integer> posQueue = new LinkedList<Integer>();
-		boolean[] startFromPos = new boolean[str.length()];
-		Arrays.fill(startFromPos, false);
-
 		Node cur = null, next = null;
-		String s = null;
+		String s = str;
 		int pos = 0, lastPos = -1, totalLen = str.length();
 		char tag = nil;
-		char[] buf = new char[totalLen];
 		LinkedList<Token> match = new LinkedList<Token>();
 
-		strQueue.offer(str);
-		posQueue.offer(0);
-
-		while (!strQueue.isEmpty()) {
+		while (pos < totalLen) {
 			cur = root;
-			s = strQueue.poll();
-			pos = posQueue.poll();
-
-			if (!startFromPos[pos]) {
-				startFromPos[pos] = true;
-				lastPos = -1;
-				int l = s.length();
-				for (int i = 0; i < l; ++i) {
-					char ch = s.charAt(i);
-					next = cur.child.get(ch);
-					if (next == null)
-						break;
-					buf[i] = ch;
-					cur = next;
-					if (cur.isStop) {
-						if (i + 1 == l || !startFromPos[i + 1 + pos]) {
-							lastPos = i + 1;
-							tag = cur.tag;
-						}
-					}
+			lastPos = -1;
+			int l = s.length();
+			for (int i = 0; i < l; ++i) {
+				char ch = s.charAt(i);
+				next = cur.child.get(ch);
+				if (next == null)
+					break;
+				cur = next;
+				if (cur.isStop) {
+					lastPos = i + 1;
+					tag = cur.tag;
 				}
-				if (lastPos == -1) {
-					match.add(new Token(s, nil));
-				} else {
-					match.add(new Token(s.substring(0, lastPos), tag));
-					if (lastPos + pos < totalLen) {
-						strQueue.offer(s.substring(lastPos));
-						posQueue.offer(lastPos + pos);
-					}
+			}
+			if (lastPos == -1) {
+				match.add(new Token(s, nil));
+				pos = l + pos;
+			} else {
+				match.add(new Token(s.substring(0, lastPos), tag));
+				if (lastPos < l) {
+					s = s.substring(lastPos);
 				}
+				pos = lastPos + pos;
 			}
 		}
 		return match;
