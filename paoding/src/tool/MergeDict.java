@@ -31,8 +31,9 @@ public class MergeDict {
 
 	public static void main(String[] args) {
 		try {
-			loadFile(".\\dic\\cedict.u8");
+			loadFile(".\\dic\\dict.u8");
 			loadFile(".\\dic\\t-base.dic");
+			loadFile(".\\dic\\sogou-dic.dic");
 
 			String[] arr = new String[set.size()];
 			int i = 0;

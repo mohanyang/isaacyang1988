@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class BuildDict {
@@ -24,15 +23,36 @@ public class BuildDict {
 		}
 	}
 
-	public void buildDict() {
-		System.out.println("building dictionary...");
+	public void buildWordDict() throws Exception {
+		System.out.println("building word dictionary...");
 		if (root == null) {
 			root = new Node(' ');
-			for (String s : list) {
-				insert(s);
-			}
-			System.out.println("dictionary build successful.");
 		}
+		BufferedReader re = new BufferedReader(new InputStreamReader(
+				new FileInputStream(new File(".\\dic\\dict.u8")), "UTF-8"));
+		String line = null;
+		while ((line = re.readLine()) != null) {
+			insert(line.trim());
+		}
+		re.close();
+
+		System.out.println("word dictionary build successful.");
+	}
+
+	public void buildBusDict() throws Exception {
+		System.out.println("building bus dictionary...");
+		if (root == null) {
+			root = new Node(' ');
+		}
+		BufferedReader re = new BufferedReader(new InputStreamReader(
+				new FileInputStream(new File(".\\dic\\bus.txt")), "UTF-8"));
+		String line = null;
+		while ((line = re.readLine()) != null) {
+			insert(line.trim());
+		}
+		re.close();
+
+		System.out.println("bus dictionary build successful.");
 	}
 
 	public void insert(String s) {
@@ -66,7 +86,7 @@ public class BuildDict {
 		return cur.isStop;
 	}
 
-	public void splitWord(String str) {
+	public LinkedList<String> splitWord(String str) {
 		Queue<String> strQueue = new LinkedList<String>();
 		Queue<Integer> posQueue = new LinkedList<Integer>();
 		boolean[] startFromPos = new boolean[str.length()];
@@ -76,6 +96,7 @@ public class BuildDict {
 		String s = null;
 		int pos = 0;
 		char[] buf = new char[str.length()];
+		LinkedList<String> match = new LinkedList<String>();
 
 		strQueue.offer(str);
 		posQueue.offer(0);
@@ -100,39 +121,37 @@ public class BuildDict {
 							strQueue.offer(s.substring(i + 1));
 							posQueue.offer(i + 1 + pos);
 						}
-						System.out.println(String.copyValueOf(buf, 0, i + 1));
+						match.add(String.copyValueOf(buf, 0, i + 1));
+						// System.out.println(String.copyValueOf(buf, 0, i +
+						// 1));
 					}
 				}
 			}
 		}
+		return match;
 	}
 
-	static List<String> list = new LinkedList<String>();
 	static Node root = null;
 
 	public static void main(String[] args) {
 		try {
-			BufferedReader re = new BufferedReader(new InputStreamReader(
-					new FileInputStream(new File(".\\dic\\dict.u8")), "UTF-8"));
-			String line = null;
-			while ((line = re.readLine()) != null) {
-				list.add(line.trim());
-			}
-			re.close();
-
 			BuildDict dict = new BuildDict();
-			dict.buildDict();
+			dict.buildWordDict();
+			dict.buildBusDict();
 			System.out.println(dict.searchDict("中国"));
 			System.out.println(dict.searchDict("家国"));
 			System.out.println(dict.searchDict("国家"));
 			long start = System.currentTimeMillis();
-			dict.splitWord("中华人民共和国");
+			for (String s : dict.splitWord("中华人民共和国"))
+				System.out.println(s);
 			System.out.println((System.currentTimeMillis() - start) + "ms");
 			start = System.currentTimeMillis();
-			dict.splitWord("很好的人民");
+			for (String s : dict.splitWord("很好的人民"))
+				System.out.println(s);
 			System.out.println((System.currentTimeMillis() - start) + "ms");
 			start = System.currentTimeMillis();
-			dict.splitWord("知春路旁小区");
+			for (String s : dict.splitWord("知春路旁小区"))
+				System.out.println(s);
 			System.out.println((System.currentTimeMillis() - start) + "ms");
 		} catch (Exception e) {
 			e.printStackTrace();
