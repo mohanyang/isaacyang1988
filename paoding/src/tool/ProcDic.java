@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
-public class ProcessDic {
+public class ProcDic {
 
 	public static void main(String[] args) {
 		try {
