@@ -48,7 +48,7 @@ public class BuildDict {
 	public void buildWordDict(Node root) throws Exception {
 		System.out.println("building word dictionary...");
 		BufferedReader re = new BufferedReader(new InputStreamReader(
-				new FileInputStream(new File(".\\dic\\dict.u8")), "UTF-8"));
+				new FileInputStream(new File(".\\dic\\cedict.u8")), "UTF-8"));
 		String line = null;
 		while ((line = re.readLine()) != null) {
 			insert(root, line.trim(), nil);
@@ -379,7 +379,6 @@ public class BuildDict {
 			for (Token t : dict.simpleMatchWord(areaRoot, "都市华庭", 2))
 				System.out.println(t.str + " " + t.tag);
 			System.out.println((System.currentTimeMillis() - start) + "ms");
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
