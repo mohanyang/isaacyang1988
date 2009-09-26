@@ -189,7 +189,7 @@ public class BuildDict {
 
 		Node curNode = null, nextNode = null, lastNode = null;
 		String s = str;
-		int curPos, curFault, tmpFault, totalLength = s.length(), lastPos = 0;
+		int curPos, curFault, totalLength = s.length(), lastPos = 0;
 		HashSet<Node> nodeMatch = new HashSet<Node>();
 		LinkedList<Token> match = new LinkedList<Token>();
 
@@ -201,8 +201,8 @@ public class BuildDict {
 			curNode = nodeQueue.poll();
 			curPos = posQueue.poll();
 			curFault = faultQueue.poll();
-			tmpFault = curFault;
 			lastNode = null;
+			lastPos = curPos;
 			for (int i = curPos; i < totalLength; ++i) {
 				char ch = s.charAt(i);
 				nextNode = curNode.child.get(ch);
@@ -220,27 +220,38 @@ public class BuildDict {
 					} else
 						break;
 				} else {
-					if (i > 0 && tmpFault < faultThreshold) {
+					if (i > 0 && curFault < faultThreshold) {
 						for (Node node : curNode.child.values()) {
 							nodeQueue.offer(node);
-							posQueue.offer(i + 1);
-							faultQueue.offer(tmpFault + 1);
+							posQueue.offer(i);
+							faultQueue.offer(curFault + 1);
 						}
-						tmpFault = tmpFault + 1;
 					}
 				}
 				curNode = nextNode;
 				if (curNode.isStop) {
 					lastNode = curNode;
-					lastPos = i + 1;
 				}
+				lastPos = i + 1;
 			}
 			if (lastNode == null) {
-				if (curFault + totalLength - curNode.depth <= faultThreshold)
-					nodeMatch.add(curNode);
+				if (curFault + totalLength - curNode.depth <= faultThreshold) {
+					if (!nodeMatch.contains(curNode) && curNode.isStop) {
+						nodeMatch.add(curNode);
+						System.out.print(makeStr(curNode) + "(" + curNode.tag
+								+ ")");
+						System.out.println(s.substring(lastPos));
+					}
+				}
 			} else {
-				if (curFault + totalLength - lastPos <= faultThreshold)
-					nodeMatch.add(lastNode);
+				if (curFault + totalLength - lastPos <= faultThreshold) {
+					if (!nodeMatch.contains(lastNode)) {
+						nodeMatch.add(lastNode);
+						System.out.print(makeStr(lastNode) + "(" + lastNode.tag
+								+ ")");
+						System.out.println(s.substring(lastPos));
+					}
+				}
 			}
 		}
 		for (Node node : nodeMatch) {
@@ -371,13 +382,19 @@ public class BuildDict {
 			System.out.println((System.currentTimeMillis() - start) + "ms");
 
 			start = System.currentTimeMillis();
-			for (Token t : dict.simpleMatchWord(areaRoot, "紫金公寓", 2))
+			for (Token t : dict.simpleSplitWord(dicRoot, "北土城西路167号院二手房"))
 				System.out.println(t.str + " " + t.tag);
 			System.out.println((System.currentTimeMillis() - start) + "ms");
 
 			start = System.currentTimeMillis();
-			for (Token t : dict.simpleMatchWord(areaRoot, "都市华庭", 2))
-				System.out.println(t.str + " " + t.tag);
+			dict.simpleMatchWord(areaRoot, "紫金公寓", 2);
+			System.out.println((System.currentTimeMillis() - start) + "ms");
+			start = System.currentTimeMillis();
+			dict.simpleMatchWord(areaRoot, "都市华庭", 2);
+			System.out.println((System.currentTimeMillis() - start) + "ms");
+
+			start = System.currentTimeMillis();
+			dict.simpleMatchWord(dicRoot, "北土城西路167号院二手房", 2);
 			System.out.println((System.currentTimeMillis() - start) + "ms");
 		} catch (Exception e) {
 			e.printStackTrace();
