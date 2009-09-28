@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -92,7 +91,7 @@ public class BuildDict {
 	public void buildAreaDict(Node root) throws Exception {
 		System.out.println("building area dictionary...");
 		BufferedReader re = new BufferedReader(new InputStreamReader(
-				new FileInputStream(new File(".\\dic\\area.txt")), "UTF-8"));
+				new FileInputStream(new File(".\\dic\\area_all.txt")), "UTF-8"));
 		String line = null;
 		while ((line = re.readLine()) != null) {
 			insert(root, line.trim(), area);
@@ -261,141 +260,115 @@ public class BuildDict {
 		return match;
 	}
 
-	public LinkedList<String> complexSplitWord(Node root, String str) {
-		Queue<String> strQueue = new LinkedList<String>();
-		Queue<Integer> posQueue = new LinkedList<Integer>();
-		boolean[] startFromPos = new boolean[str.length()];
-		Arrays.fill(startFromPos, false);
-
-		Node cur = null, next = null;
-		String s = null;
-		int pos = 0, lastPos = -1, totalLen = str.length();
-		char[] buf = new char[totalLen];
-		LinkedList<String> match = new LinkedList<String>();
-
-		strQueue.offer(str);
-		posQueue.offer(0);
-
-		while (!strQueue.isEmpty()) {
-			cur = root;
-			s = strQueue.poll();
-			pos = posQueue.poll();
-
-			if (!startFromPos[pos]) {
-				startFromPos[pos] = true;
-				lastPos = -1;
-				int l = s.length();
-				for (int i = 0; i < l; ++i) {
-					char ch = s.charAt(i);
-					next = cur.child.get(ch);
-					if (next == null)
-						break;
-					buf[i] = ch;
-					cur = next;
-					if (cur.isStop) {
-						if (i + 1 == l || !startFromPos[i + 1 + pos]) {
-							lastPos = i + 1;
-						}
-					}
-				}
-				if (lastPos == -1) {
-					match.add(s);
-				} else {
-					match.add(s.substring(0, lastPos));
-					if (lastPos + pos < totalLen) {
-						strQueue.offer(s.substring(lastPos));
-						posQueue.offer(lastPos + pos);
-					}
-				}
-			}
+	public LinkedList<Token> complexMatchWord(Node root, String str,
+			int faultThreshold) {
+		Node curNode = root, nextNode = null;
+		int totalLength = str.length();
+		for (int i = 0; i < totalLength; ++i) {
+			char ch = str.charAt(i);
+			nextNode = curNode.child.get(ch);
+			if (nextNode == null)
+				break;
+			curNode = nextNode;
 		}
-		return match;
+		if (nextNode == null) {
+			return simpleMatchWord(root, str, faultThreshold);
+		} else {
+			LinkedList<Token> match = new LinkedList<Token>();
+			Queue<Node> nodeQueue = new LinkedList<Node>();
+			nodeQueue.offer(curNode);
+			while (!nodeQueue.isEmpty()) {
+				curNode = nodeQueue.poll();
+				if (curNode.isStop) {
+					match.add(new Token(makeStr(curNode), curNode.tag));
+					System.out
+							.println(makeStr(curNode) + "(" + curNode.tag + ")");
+				}
+				for (Node node : curNode.child.values())
+					nodeQueue.offer(node);
+			}
+			if (match.isEmpty())
+				return simpleMatchWord(root, str, faultThreshold);
+			else
+				return match;
+		}
 	}
 
 	static Node dicRoot = null, areaRoot = null;
 
+	public void test() throws Exception {
+		buildWordDict(dicRoot);
+		buildBusDict(dicRoot);
+		buildZoneDict(dicRoot);
+		buildHouseDict(dicRoot);
+		buildAreaDict(dicRoot);
+
+		System.out.println(searchDict(dicRoot, "中国"));
+		System.out.println(searchDict(dicRoot, "家国"));
+		System.out.println(searchDict(dicRoot, "国家"));
+		long start = System.currentTimeMillis();
+		for (Token t : simpleSplitWord(dicRoot, "中华人民共和国"))
+			System.out.println(t.str + " " + t.tag);
+		System.out.println((System.currentTimeMillis() - start) + "ms");
+		start = System.currentTimeMillis();
+		for (Token t : simpleSplitWord(dicRoot, "勇敢的人民"))
+			System.out.println(t.str + " " + t.tag);
+		System.out.println((System.currentTimeMillis() - start) + "ms");
+		start = System.currentTimeMillis();
+		for (Token t : simpleSplitWord(dicRoot, "某大学博士的立委候选人"))
+			System.out.println(t.str + " " + t.tag);
+		System.out.println((System.currentTimeMillis() - start) + "ms");
+		start = System.currentTimeMillis();
+		for (Token t : simpleSplitWord(dicRoot, "知春路旁的小区"))
+			System.out.println(t.str + " " + t.tag);
+		System.out.println((System.currentTimeMillis() - start) + "ms");
+		start = System.currentTimeMillis();
+		for (Token t : simpleSplitWord(dicRoot, "知春路附近的小区两房一厅"))
+			System.out.println(t.str + " " + t.tag);
+		System.out.println((System.currentTimeMillis() - start) + "ms");
+		start = System.currentTimeMillis();
+		for (Token t : simpleSplitWord(dicRoot, "海淀区知春路小区两房两厅"))
+			System.out.println(t.str + " " + t.tag);
+		System.out.println((System.currentTimeMillis() - start) + "ms");
+		start = System.currentTimeMillis();
+		for (Token t : simpleSplitWord(dicRoot, "学院路豪华装修三居"))
+			System.out.println(t.str + " " + t.tag);
+		System.out.println((System.currentTimeMillis() - start) + "ms");
+		start = System.currentTimeMillis();
+		for (Token t : simpleSplitWord(dicRoot, "五道口学院路逸成东苑两居"))
+			System.out.println(t.str + " " + t.tag);
+		System.out.println((System.currentTimeMillis() - start) + "ms");
+	}
+
 	public static void main(String[] args) {
 		try {
-			BuildDict dict = new BuildDict();
-			dict.buildWordDict(dicRoot);
-			dict.buildBusDict(dicRoot);
-			dict.buildZoneDict(dicRoot);
-			dict.buildHouseDict(dicRoot);
-			dict.buildAreaDict(dicRoot);
+			// new BuildDict().test();
 
+			final BuildDict dict = new BuildDict();
 			dict.buildAreaDict(areaRoot);
 
-			System.out.println(dict.searchDict(dicRoot, "中国"));
-			System.out.println(dict.searchDict(dicRoot, "家国"));
-			System.out.println(dict.searchDict(dicRoot, "国家"));
 			long start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "中华人民共和国"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "勇敢的人民"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "某大学博士的立委候选人"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "知春路旁的小区"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "知春路附近的小区两房一厅"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "海淀区知春路小区两房两厅"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "学院路豪华装修三居"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "五道口学院路逸成东苑两居"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "紫金公寓"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "都市华庭1期"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "都会华庭2期"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "都会华庭 二期"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "珠江奥古斯塔城邦"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-
-			start = System.currentTimeMillis();
-			for (Token t : dict.simpleSplitWord(dicRoot, "北土城西路167号院二手房"))
-				System.out.println(t.str + " " + t.tag);
-			System.out.println((System.currentTimeMillis() - start) + "ms");
-
-			start = System.currentTimeMillis();
 			dict.simpleMatchWord(areaRoot, "紫金公寓", 2);
 			System.out.println((System.currentTimeMillis() - start) + "ms");
 			start = System.currentTimeMillis();
 			dict.simpleMatchWord(areaRoot, "都市华庭", 2);
 			System.out.println((System.currentTimeMillis() - start) + "ms");
-
 			start = System.currentTimeMillis();
-			dict.simpleMatchWord(dicRoot, "北土城西路167号院二手房", 2);
+			dict.simpleMatchWord(areaRoot, "珠江奥古斯塔城邦", 2);
 			System.out.println((System.currentTimeMillis() - start) + "ms");
+			start = System.currentTimeMillis();
+			dict.complexMatchWord(areaRoot, "紫金", 2);
+			System.out.println((System.currentTimeMillis() - start) + "ms");
+
+			// new Thread(new Runnable(){public void run(){
+			// dict.simpleMatchWord(areaRoot, "紫金公寓", 2);
+			// }}).start();
+			// new Thread(new Runnable(){public void run(){
+			// dict.simpleMatchWord(areaRoot, "都市华庭", 2);
+			// }}).start();
+			// new Thread(new Runnable(){public void run(){
+			// dict.simpleMatchWord(areaRoot, "珠江奥古斯塔城邦", 2);
+			// }}).start();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
