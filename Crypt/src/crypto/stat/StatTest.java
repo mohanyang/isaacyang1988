@@ -82,7 +82,7 @@ public class StatTest implements IToolkit {
 		String outPath = rootPath + "\\config\\out.dat";
 		String keyPath = rootPath + "\\config\\key.txt";
 		String[] cmd = new String[] { "cmd.exe", "/C",
-				rootPath + "\\lib\\diehard.exe", outPath,
+				rootPath + "\\lib\\assess.exe", outPath,
 				String.valueOf(testName + 1) };
 		try {
 			int len = 11468816;
@@ -144,6 +144,9 @@ public class StatTest implements IToolkit {
 				}
 			if (autoGen && !reserveGen)
 				new File(keyPath).delete();
+			String reportFile = "finalAnalysisReport";
+			log.println(BasicMethod.readFile(reportFile));
+			new File(reportFile).delete();			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

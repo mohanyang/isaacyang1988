@@ -25,13 +25,13 @@ import crypto.ui.ArgManager;
 
 public class UIStatTest extends BasicToolkit {
 	static public final long serialVersionUID = 188;
-	static final String[] testName = { "Birthday Spacings",
-			"Overlapping Permutations", "Ranks of 31x31 and 32x32 matrices",
-			"Ranks of 6x8 Matrices", "Monkey Tests on 20-bit Words",
-			"Monkey Tests OPSO,OQSO,DNA", "Count the 1`s in a Stream of Bytes",
-			"Count the 1`s in Specific Bytes", "Parking Lot Test",
-			"Minimum Distance Test", "Random Spheres Test", "The Sqeeze Test",
-			"Overlapping Sums Test", "Runs Test", "The Craps Test",
+	static final String[] testName = { "Frequency",
+			"Block Frequency", "Cumulative Sums",
+			"Runs", "Longest Run of Ones",
+			"Rank", "Discrete Fourier Transform",
+			"Nonperiodic Template Matchings", "Overlapping Template Matchings",
+			"Universal Statistical", "Approximate Entropy", "Random Excursions",
+			"Random Excursions Variant", "Serial", "Linear Complexity",
 			"All of the above" };
 	static final String[] keyLength = { "64 bit", "128 bit", "256 bit" };
 
