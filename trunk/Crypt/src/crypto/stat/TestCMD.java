@@ -15,11 +15,11 @@ public class TestCMD {
 
 	public static void main(String[] args) {
 		String rootPath = System.getProperty("user.dir");
-		String rndPath = rootPath + "\\rnd.dat";
+		String rndPath = rootPath + "\\config\\rnd.dat";
 		String[] cmd = new String[] { "cmd.exe", "/C",
-				rootPath + "\\lib\\diehard.exe", rndPath, "16" };
+				rootPath + "\\lib\\assess.exe", rndPath, "16" };
 		try {
-			int len = 11468800;
+			int len = 1024000;
 			byte[] buf = new byte[len];
 
 			MWCGenerator mgen = new MWCGenerator();
@@ -30,7 +30,7 @@ public class TestCMD {
 					new FileOutputStream(rndPath));
 			rndOut.write(buf);
 			rndOut.close();
-
+			
 			Process process = Runtime.getRuntime().exec(cmd);
 			BufferedReader br = new BufferedReader(new InputStreamReader(
 					process.getInputStream()));
